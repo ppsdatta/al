@@ -1,6 +1,8 @@
 from lang.actions import *
 from lang.guy import AL
 
+from textblob import TextBlob
+
 TRAINING_DATA = {
     'blank': {
         'action': blank,
@@ -32,13 +34,13 @@ TRAINING_DATA = {
     'my_cards': {
         'action': my_card,
         'training_data': [
-            'cards mine',
-            'my cards',
-            'all cards',
-            'show my cards',
+            'card mine',
+            'my card',
+            'all card',
+            'show my card',
             'show cards mine',
-            'cards assigned me',
-            'cards I working on',
+            'card assigned me',
+            'card I working on',
             'my work',
             'what I working',
             'I work card'
@@ -67,6 +69,14 @@ def train():
 
 
 def clear_data(raw_data):
-    return [raw_data]
+    blob = TextBlob(raw_data)
+    blob.correct()
+    data = []
+    for s in blob.sentences:
+        ws = [w.singularize() for w in s.words]
+        ws = ' '.join(ws)
+        data.append(ws)
+    return data
+
 
 
