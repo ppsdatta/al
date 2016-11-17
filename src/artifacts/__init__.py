@@ -9,7 +9,7 @@ from colorama import Fore, Back, Style
 
 class Artifact:
     @staticmethod
-    def shorten(self, txt, limit=20):
+    def shorten(txt, limit=20):
         if len(txt) <= limit:
             return txt
         else:
