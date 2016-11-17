@@ -8,6 +8,8 @@ from lang.jokes import all_jokes
 import random
 from artifacts import Card
 
+rand = random.seed()
+
 
 def my_card(*args):
     return ['showing your cards',
@@ -25,8 +27,16 @@ def joke(*args):
 
 
 def blank(*args):
-    r = random.randint(1, 10)
-    if r <= 5:
-        return 'yep...'
-    else:
-        return 'well...'
+    return 'That does not look like anything to me...'
+
+
+def boards(action_type):
+    def show_boards(*args):
+        return ['Showing al boards']
+
+    def create_board(*args):
+        return ['Creating a board']
+
+    def rename_board(*args):
+        return ['Renaming board']
+

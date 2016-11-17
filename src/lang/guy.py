@@ -2,7 +2,7 @@
 AL the guy
 """
 
-from textblob.classifiers import NaiveBayesClassifier
+from textblob.classifiers import DecisionTreeClassifier
 from textblob import TextBlob
 
 
@@ -41,7 +41,7 @@ class AL:
                 self.action_map[tag] = tag_data['action']
                 for d in tag_data['training_data']:
                     self.converted_training_data.append((d, tag))
-            self.classifier = NaiveBayesClassifier(self.converted_training_data)    #, feature_extractor=cmd_extractor)
+            self.classifier = DecisionTreeClassifier(self.converted_training_data)    #, feature_extractor=cmd_extractor)
 
         def respond(self, data):
             action_class = self.classifier.classify(data)
