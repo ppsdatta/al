@@ -3,7 +3,7 @@
 Main I/O interfaces
 
 """
-
+import getpass
 from colorama import init, Back, Fore, Style
 from artifacts import Artifact
 
@@ -23,6 +23,14 @@ def al_speak(txt):
 
 def display(text, *args, **kargs):
     print(Fore.RED + text, *args, **kargs)
+
+
+def normal_input(text=''):
+    return input(Fore.BLUE + text)
+
+
+def password_input(text=''):
+    return getpass.getpass(Fore.RED + text)
 
 
 def remove_duplicate_strings(result):

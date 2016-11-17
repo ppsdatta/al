@@ -54,7 +54,6 @@ class ALSession():
         if sess and (sess.cookies.get_dict() != {}):
             self.loggedin = True
         else:
-            print('login error')
             self.loggedin = False
             return False
 
@@ -64,6 +63,7 @@ class ALSession():
 
         SESSION['uinfo'] = self.uinfo
         SESSION['session'] = self
+        SESSION['uid'] = self.uinfo['uid']
 
         return self.uinfo
 
