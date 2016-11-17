@@ -40,6 +40,7 @@ TRAINING_DATA = {
             'show my card',
             'show cards mine',
             'card assigned me',
+            'assigned to me',
             'card I working on',
             'my work',
             'what I working',
@@ -60,6 +61,23 @@ TRAINING_DATA = {
             'another joke'
         ]
     }
+}
+
+REGEX_GRAMMAR = {
+    'blank': [
+        r''
+    ],
+    'greetings': [
+        r'^(hello|hi|howdy|good|yo|hallo|hullo'
+    ],
+    'my_cards': [
+        r'.*show.*(me)?.*my.*cards.*'
+    ],
+    'joke': [
+        r'.*(tell|say).*(me)?.*joke.*',
+        r'.*feeling.*(sad|down).*',
+        r'.*make.*happy.*'
+    ]
 }
 
 
