@@ -14,6 +14,7 @@ def main():
     prepare()
     ioinit()
     banner('Welcome! I am AL, your Projectplace assistant')
+    display('[may the command line be with you...]')
     while True:
         display('>> ', end='')
         data = input()
