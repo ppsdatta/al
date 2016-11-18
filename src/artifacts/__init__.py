@@ -14,6 +14,7 @@ class Artifact:
     def __init__(self):
         self.title = ''
         self.data_dict = dict()
+        self.max_pad = 40
 
     @staticmethod
     def shorten(txt, limit=20):
@@ -26,7 +27,8 @@ class Artifact:
         display_str = ''
         display_str += Back.LIGHTBLUE_EX + Fore.WHITE + self.__class__.__name__.upper() + ' ~ ' + str(self.title) + Back.RESET + '\n'
         for k in sorted(self.data_dict.keys()):
-            display_str += '\t\t' + Fore.RED + k.upper() + ': ' + Fore.BLUE + str(self.data_dict[k]) + '\n'
+            display_str += '\t' + Back.WHITE + Fore.RED + k.upper() + Back.RESET + (' ' * (self.max_pad - len(k))) + \
+                           '\t' + Fore.BLUE + str(self.data_dict[k]) + '\n'
         return display_str
 
 
@@ -66,14 +68,22 @@ class Group(Artifact):
 
 
 class Board(Artifact):
-    pass
+    def __init__(self, bjson):
+        super().__init__()
+        self.title = bjson['name']
+        self.data_dict = dict(project_id=bjson['project_id'],
+                              email=bjson['email'],
+                              cards_done=bjson['done_count'],
+                              archived=bjson['is_archived'],
+                              project=bjson['project']['name'])
 
 
 KLASS_MAP = {
     'card': Card,
     'assignment': Assignment,
     'member': Member,
-    'group': Group
+    'group': Group,
+    'board': Board
 }
 
 

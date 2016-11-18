@@ -13,6 +13,7 @@ PROFILE_RESOURCE = 'api/v1/user/{0}/profile'
 MY_CARDS_RESOURCE = 'api/v1/user/{0}/cards'
 MY_ASSIGNMENTS_RESOURCE = 'api/v1/user/{0}/assignments'
 COWORKERS_RESOURCE = 'api/v2/user/{0}/coworkers'
+BOARDS_RESOURCE = 'api/v1/user/{0}/boards'
 
 
 def get_slam():
@@ -68,4 +69,7 @@ def my_comembers():
 def my_groups():
     return get_stuffs(COWORKERS_RESOURCE, 'group', json_key='groups')
 
+
+def my_boards():
+    return get_stuffs(BOARDS_RESOURCE, 'board')
 
