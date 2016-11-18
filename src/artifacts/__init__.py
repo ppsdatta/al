@@ -81,11 +81,30 @@ class Board(Artifact):
 class Search(Artifact):
     def __init__(self, sjson):
         super().__init__()
+
+        def get_matched_by_string(highlight):
+            s = ''
+            for k in highlight.keys():
+                s += '{0} => {1}'.format(k, ', '.join(highlight[k]))
+            return s
+
+        def get_artifact_details_string(details):
+            if not isinstance(details, dict):
+                return str(details)
+
+            s = ''
+            for k in details.keys():
+                if k in ('id', 'name', 'project', 'due_date'):
+                    s += '{0}{1}{2} => {3}{4}{5} '.format(Back.LIGHTWHITE_EX, k, Back.RESET,
+                                                          Back.LIGHTWHITE_EX, get_artifact_details_string(details[k]),
+                                                          Back.RESET)
+            return '[' + s.rstrip() + ']'
+
         self.title = sjson['artifact_details']['name']
         self.data_dict = dict(artifact_type=sjson['artifact_type'],
                               url=sjson['html_url'],
-                              matched_by=sjson['highlight'],
-                              artifact_details=sjson['artifact_details'])
+                              matched_by=get_matched_by_string(sjson['highlight']),
+                              artifact_details=get_artifact_details_string(sjson['artifact_details']))
 
 
 KLASS_MAP = {
