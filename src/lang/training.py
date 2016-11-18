@@ -122,6 +122,19 @@ TRAINING_DATA = {
             'I am'
         ]
     },
+    'search': {
+        'action': search,
+        'training_data': [
+            'search for',
+            'find',
+            'find for',
+            'search',
+            'find for me',
+            'can you search',
+            'please find',
+            'please search'
+        ]
+    },
     'joke': {
         'action': joke,
         'training_data': [

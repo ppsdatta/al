@@ -4,8 +4,7 @@
 """
 
 from globals import SESSION
-from auth import ALRequester
-from artifacts import get_resource, get_stuffs, Card, Assignment
+from artifacts import get_resource, get_stuffs
 
 
 SLAM_RESOURCE = 'api/v1/user/{0}/slam'

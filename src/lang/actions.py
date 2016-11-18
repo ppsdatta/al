@@ -7,6 +7,8 @@ All command actions
 from lang.jokes import all_jokes
 import random
 import artifacts.user as uactions
+import artifacts.search as sactions
+import re
 
 rand = random.seed()
 
@@ -33,6 +35,16 @@ def my_groups(*args):
 
 def who(*args):
     return uactions.who()
+
+
+def search(*args):
+    regex = r'.*(search|find)\s+(for)?\b([\w ]+)'
+    command = args[0]
+    m = re.match(regex, command)
+    if m and len(m.groups()) >= 3:
+        return sactions.search(m.group(3))
+    else:
+        return 'Sorry, could not get any search result. Try: search for <...>'
 
 
 def greet(*args):

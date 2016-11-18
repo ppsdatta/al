@@ -78,12 +78,23 @@ class Board(Artifact):
                               project=bjson['project']['name'])
 
 
+class Search(Artifact):
+    def __init__(self, sjson):
+        super().__init__()
+        self.title = sjson['artifact_details']['name']
+        self.data_dict = dict(artifact_type=sjson['artifact_type'],
+                              url=sjson['html_url'],
+                              matched_by=sjson['highlight'],
+                              artifact_details=sjson['artifact_details'])
+
+
 KLASS_MAP = {
     'card': Card,
     'assignment': Assignment,
     'member': Member,
     'group': Group,
-    'board': Board
+    'board': Board,
+    'search': Search
 }
 
 
@@ -95,9 +106,27 @@ def get_resource(resource):
     return ALRequester.request(resource.format(uid))
 
 
+def search_request(resource, query):
+    sess = SESSION['session']
+    if sess is None:
+        return ''
+    return ALRequester.request(resource.format(query))
+
+
+
 def get_stuffs(resource, name, json_key=None):
     klass = KLASS_MAP[name]
     results = get_resource(resource)
+    return process_result(results, name, klass, json_key)
+
+
+def get_search_stuffs(resource, query, json_key=None):
+    klass = KLASS_MAP['search']
+    results = search_request(resource, query)
+    return process_result(results, 'search', klass, json_key)
+
+
+def process_result(results, name, klass, json_key=None):
     if results[0]:
         rs = results[1].json()
         if not (json_key is None):
@@ -109,6 +138,4 @@ def get_stuffs(resource, name, json_key=None):
             return ['Showing ' + name, klass(rs)]
     else:
         return 'No result for ' + Word(name).pluralize()
-
-
 
