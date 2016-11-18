@@ -5,18 +5,14 @@
 
 from globals import SESSION
 from auth import ALRequester
+from artifacts import get_resource, get_stuffs, Card, Assignment
 
 
 SLAM_RESOURCE = 'api/v1/user/{0}/slam'
 PROFILE_RESOURCE = 'api/v1/user/{0}/profile'
-
-
-def get_resource(resource):
-    sess = SESSION['session']
-    uid = SESSION['uid']
-    if sess is None:
-        return ''
-    return ALRequester.request(resource.format(uid))
+MY_CARDS_RESOURCE = 'api/v1/user/{0}/cards'
+MY_ASSIGNMENTS_RESOURCE = 'api/v1/user/{0}/assignments'
+COWORKERS_RESOURCE = 'api/v2/user/{0}/coworkers'
 
 
 def get_slam():
@@ -56,5 +52,20 @@ def greet_message():
 
     return message
 
+
+def my_cards():
+    return get_stuffs(MY_CARDS_RESOURCE, 'card')
+
+
+def my_assignments():
+    return get_stuffs(MY_ASSIGNMENTS_RESOURCE, 'assignment')
+
+
+def my_comembers():
+    return get_stuffs(COWORKERS_RESOURCE, 'member', json_key='members')
+
+
+def my_groups():
+    return get_stuffs(COWORKERS_RESOURCE, 'group', json_key='groups')
 
 

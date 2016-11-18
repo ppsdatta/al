@@ -6,15 +6,13 @@ All command actions
 
 from lang.jokes import all_jokes
 import random
-from artifacts import Card
+from artifacts.user import my_cards, my_assignments, my_comembers, my_groups
 
 rand = random.seed()
 
 
 def my_card(*args):
-    return ['showing your cards',
-            Card('1223', 'Card 1', 'http://www.service.projectplace.com/card/1223'),
-            Card('1224', 'Card 2', 'http://www.service.projectplace.com/card/1224')]
+    return my_cards()
 
 
 def greet(*args):
