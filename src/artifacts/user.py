@@ -73,3 +73,7 @@ def my_groups():
 def my_boards():
     return get_stuffs(BOARDS_RESOURCE, 'board')
 
+
+def who():
+    return 'You are {}, your email is {}'.format(SESSION['user_profile']['sort_name'], SESSION['user_profile']['email'])
+

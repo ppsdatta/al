@@ -104,9 +104,9 @@ def get_stuffs(resource, name, json_key=None):
             rs = rs[json_key]
 
         if isinstance(rs, list):
-            return [Word(name).pluralize()] + [klass(aJson) for aJson in rs]
+            return ['Showing ' + Word(name).pluralize()] + [klass(aJson) for aJson in rs]
         else:
-            return [name, klass(rs)]
+            return ['Showing ' + name, klass(rs)]
     else:
         return 'No result for ' + Word(name).pluralize()
 

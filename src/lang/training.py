@@ -9,6 +9,8 @@ TRAINING_DATA = {
         'training_data': [
             'great',
             'ummm...',
+            'hmm',
+            'hmmm',
             'ok',
             'alright',
             'really',
@@ -32,20 +34,93 @@ TRAINING_DATA = {
         ]
     },
     'my_cards': {
-        'action': my_card,
+        'action': my_cards,
         'training_data': [
             'card mine',
             'my card',
-            'all card',
-            'show my card',
-            'show cards mine',
-            'card assigned me',
-            'assigned to me',
-            'card I working on',
-            'my work',
-            'what I working',
-            'I work card'
+            'all cards',
+            'show card',
+            'show card mine',
+            'card I working',
+            'card'
         ],
+    },
+    'my_boards': {
+        'action': my_boards,
+        'training_data': [
+            'board mine',
+            'my board',
+            'all board',
+            'show board',
+            'show board mine',
+            'board I working',
+            'board',
+            'boards'
+        ],
+    },
+    'my_assignments': {
+        'action': my_assignments,
+        'training_data': [
+            'assignment mine',
+            'my assignment',
+            'all assignment',
+            'show assignment',
+            'show assignment mine',
+            'things I work',
+            'assignment',
+            'assignments',
+            'my work',
+            'I working',
+            'show my work',
+            'what i working'
+        ],
+    },
+    'my_coworkers': {
+        'action': my_coworkers,
+        'training_data': [
+            'firend',
+            'my co-worker',
+            'my co-worker',
+            'my coworker',
+            'people',
+            'member',
+            'people I know',
+            'fellow',
+            'members',
+            'persons',
+            'all members',
+            'working with'
+        ],
+    },
+    'my_groups': {
+        'action': my_groups,
+        'training_data': [
+            'my groups',
+            'group',
+            'show my group',
+            'group information',
+            'group detail',
+            'group',
+            'people in groups',
+            'group persons',
+            'group members'
+        ],
+    },
+    'who': {
+        'action': who,
+        'training_data': [
+            'who',
+            'who am i',
+            'i am who',
+            'myself',
+            'tell me about me',
+            'say my name',
+            'show my info',
+            'about me',
+            'me',
+            'myself',
+            'I am'
+        ]
     },
     'joke': {
         'action': joke,
@@ -95,6 +170,5 @@ def clear_data(raw_data):
         ws = ' '.join(ws)
         data.append(ws)
     return data
-
 
 
