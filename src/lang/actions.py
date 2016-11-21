@@ -48,7 +48,7 @@ def search(*args):
 
 
 def greet(*args):
-    return 'Hi there!'
+    return '??? :-x'
 
 
 def joke(*args):

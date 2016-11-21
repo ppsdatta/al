@@ -4,20 +4,6 @@ from lang.guy import AL
 from textblob import TextBlob
 
 TRAINING_DATA = {
-    'blank': {
-        'action': blank,
-        'training_data': [
-            'great',
-            'ummm...',
-            'hmm',
-            'hmmm',
-            'ok',
-            'alright',
-            'really',
-            'yes',
-            'no'
-        ]
-    },
     'greetings': {
         'action': greet,
         'training_data': [
@@ -69,16 +55,15 @@ TRAINING_DATA = {
             'things I work',
             'assignment',
             'assignments',
-            'my work',
-            'I working',
-            'show my work',
+            'work',
+            'working',
+            'show work',
             'what i working'
         ],
     },
     'my_coworkers': {
         'action': my_coworkers,
         'training_data': [
-            'firend',
             'my co-worker',
             'my co-worker',
             'my coworker',
@@ -133,20 +118,6 @@ TRAINING_DATA = {
             'can you search',
             'please find',
             'please search'
-        ]
-    },
-    'joke': {
-        'action': joke,
-        'training_data': [
-            'tell me joke',
-            'tell joke',
-            'feelind sad',
-            'feeling busy',
-            'make me happy',
-            'time pass',
-            'tell me something',
-            'joke',
-            'another joke'
         ]
     }
 }
