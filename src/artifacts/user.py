@@ -74,5 +74,5 @@ def my_boards():
 
 
 def who():
-    return 'You are {}, your email is {}'.format(SESSION['user_profile']['sort_name'], SESSION['user_profile']['email'])
+    return 'Hello {} [{}]! You can ask me to show your assignments!'.format(SESSION['user_profile']['sort_name'], SESSION['user_profile']['email'])
 

@@ -4,3 +4,8 @@ colorama
 termcolor
 click
 requests
+SpeechRecognition
+pyaudio
+PocketSphinx
+oauth2client
+google-api-python-client

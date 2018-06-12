@@ -4,21 +4,6 @@ from lang.guy import AL
 from textblob import TextBlob
 
 TRAINING_DATA = {
-    'greetings': {
-        'action': greet,
-        'training_data': [
-            'hello',
-            'hi',
-            'yo',
-            'good day',
-            'good morning',
-            'good evening',
-            'good night',
-            'hallo',
-            'hullo',
-            'howdy'
-        ]
-    },
     'my_cards': {
         'action': my_cards,
         'training_data': [
@@ -28,25 +13,7 @@ TRAINING_DATA = {
             'show card',
             'show card mine',
             'card I working',
-            'card'
-        ],
-    },
-    'my_boards': {
-        'action': my_boards,
-        'training_data': [
-            'board mine',
-            'my board',
-            'all board',
-            'show board',
-            'show board mine',
-            'board I working',
-            'board',
-            'boards'
-        ],
-    },
-    'my_assignments': {
-        'action': my_assignments,
-        'training_data': [
+            'card',
             'assignment mine',
             'my assignment',
             'all assignment',
@@ -59,36 +26,6 @@ TRAINING_DATA = {
             'working',
             'show work',
             'what i working'
-        ],
-    },
-    'my_coworkers': {
-        'action': my_coworkers,
-        'training_data': [
-            'my co-worker',
-            'my co-worker',
-            'my coworker',
-            'people',
-            'member',
-            'people I know',
-            'fellow',
-            'members',
-            'persons',
-            'all members',
-            'working with'
-        ],
-    },
-    'my_groups': {
-        'action': my_groups,
-        'training_data': [
-            'my groups',
-            'group',
-            'show my group',
-            'group information',
-            'group detail',
-            'group',
-            'people in groups',
-            'group persons',
-            'group members'
         ],
     },
     'who': {
@@ -104,20 +41,13 @@ TRAINING_DATA = {
             'about me',
             'me',
             'myself',
-            'I am'
-        ]
-    },
-    'search': {
-        'action': search,
-        'training_data': [
-            'search for',
-            'find',
-            'find for',
-            'search',
-            'find for me',
-            'can you search',
-            'please find',
-            'please search'
+            'I am',
+            'hello',
+            'hi',
+            'hola',
+            'greetings',
+            'I am',
+            'talk to me'
         ]
     }
 }
